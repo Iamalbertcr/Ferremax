@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS Ferremax CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE Ferremax;
+ 
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario VARCHAR(50) NOT NULL UNIQUE,
+  clave VARCHAR(255) NOT NULL
+);
+ 
+-- Usuario de prueba (usuario: admin, clave: admin)
+INSERT INTO usuarios (usuario, clave) VALUES ('admin','admin');
+ 
+CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(150) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL,
+  cantidad INT NOT NULL
+);
+ 
+CREATE TABLE clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(150) NOT NULL,
+  cedula VARCHAR(50),
+  correo VARCHAR(150)
+);
+ 
+-- Datos de ejemplo
+INSERT INTO productos (nombre, precio, cantidad) VALUES ('Martillo', 12.50, 10);
+INSERT INTO clientes (nombre, cedula, correo) VALUES ('Carlos Pérez', '12345678', 'carlos@example.com');

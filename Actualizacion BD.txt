@@ -1,0 +1,19 @@
+Tabla de ventas
+CREATE TABLE ventas (
+    idVenta INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATETIME NOT NULL,
+    cliente VARCHAR(100),
+    total DOUBLE NOT NULL
+);
+
+
+Tabla detalle_venta
+CREATE TABLE detalle_venta (
+    idDetalle INT AUTO_INCREMENT PRIMARY KEY,
+    idVenta INT NOT NULL,
+    producto VARCHAR(150) NOT NULL,
+    cantidad INT NOT NULL,
+    precio DOUBLE NOT NULL,
+    subtotal DOUBLE NOT NULL,
+    FOREIGN KEY (idVenta) REFERENCES ventas(idVenta)
+);
